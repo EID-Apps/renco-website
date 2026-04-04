@@ -89,12 +89,15 @@ body {
   margin: 0 auto;
 }
 .preview-img {
-  width: 100%;
-  max-height: 480px;
+  width: auto;
+  max-width: 640px;
+  max-height: 360px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 12px 48px rgba(0,0,0,0.4);
   border: 2px solid rgba(255,255,255,0.08);
+  display: block;
+  margin: 0 auto;
 }
 .preview-caption {
   font-family: var(--mono);
