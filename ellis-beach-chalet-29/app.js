@@ -186,11 +186,21 @@ function renderShipping(data) {
     return;
   }
 
-  // Show recommendation
+  // Show recommendation + alternatives
   const recEl = document.getElementById('shipping-rec');
   if (data.summary.container_recommendation) {
     const util = data.summary.container_utilisation || 0;
-    recEl.textContent = `Recommended: ${data.summary.container_recommendation} — ${util}% utilisation`;
+    let html = `<strong>Recommended: ${data.summary.container_recommendation} — ${util}% utilisation</strong>`;
+    const opts = data.summary.container_options || [];
+    const alts = opts.filter(o => !o.recommended).slice(0, 3);
+    if (alts.length > 0) {
+      html += '<div class="shipping-alternatives">';
+      alts.forEach(a => {
+        html += `<span class="alt-option">${a.label} (${a.utilisation}%)</span>`;
+      });
+      html += '</div>';
+    }
+    recEl.innerHTML = html;
   }
 
   data.containers.forEach(ctr => {

@@ -164,6 +164,20 @@ body {
   color: var(--olive-d);
   margin-bottom: 0.5rem;
 }
+.shipping-alternatives {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.alt-option {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: #888;
+  padding: 0.2rem 0.6rem;
+  background: var(--sage-lt);
+  border-radius: 4px;
+}
 .section-subtitle {
   font-family: var(--mono);
   font-size: 0.8rem;
