@@ -70,8 +70,8 @@ function renderKPIs(data) {
   document.getElementById('kpi-walls').textContent = fmt(data.project.total_walls);
   document.getElementById('kpi-blocks').textContent = fmt(data.summary.total_blocks);
   document.getElementById('kpi-weight').textContent = fmt(Math.round(data.summary.total_weight_lbs));
-  document.getElementById('kpi-containers').textContent =
-    data.summary.containers_required + ' x ' + data.summary.container_type;
+  const rec = data.summary.container_recommendation || (data.summary.containers_required + ' x ' + (data.summary.container_type || 'ISO-40'));
+  document.getElementById('kpi-containers').textContent = rec;
 }
 
 function renderBlockChart(data) {
@@ -185,6 +185,13 @@ function renderShipping(data) {
     return;
   }
 
+  // Show recommendation
+  const recEl = document.getElementById('shipping-rec');
+  if (data.summary.container_recommendation) {
+    const util = data.summary.container_utilisation || 0;
+    recEl.textContent = `Recommended: ${data.summary.container_recommendation} — ${util}% utilisation`;
+  }
+
   data.containers.forEach(ctr => {
     const card = document.createElement('div');
     card.className = 'shipping-card';
@@ -203,9 +210,10 @@ function renderShipping(data) {
     }
     palletHtml += '</div>';
 
+    const recLabel = data.summary.container_recommendation || '';
     card.innerHTML = `
       <h3>Container ${ctr.container_number} of ${data.summary.containers_required}</h3>
-      <div class="stat">${ctr.type} &mdash; <strong>${ctr.total_pallets} pallets</strong></div>
+      <div class="stat"><strong>${ctr.total_pallets} pallets</strong></div>
       ${palletHtml}
     `;
     grid.appendChild(card);
