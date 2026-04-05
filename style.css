@@ -343,6 +343,37 @@ body {
 }
 .warning-list li strong { color: var(--white); }
 
+/* === Data Pending === */
+.section-pending {
+  background: #f5f3ed;
+}
+.section-pending .section-title {
+  color: var(--olive-d);
+}
+.pending-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.pending-list li {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--dark-3);
+  padding: 0.4rem 0;
+  line-height: 1.5;
+}
+.pending-list li::marker {
+  color: var(--olive);
+  font-weight: 700;
+}
+.pending-note {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.6;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
 /* === Footer === */
 .footer {
   background: var(--dark);
