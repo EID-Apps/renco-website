@@ -88,7 +88,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--dark-2);
+  background: #000000;
   border-radius: 8px;
   padding: 6px 12px;
   width: 144px;
