@@ -72,9 +72,9 @@ body {
   gap: 0;
   margin-bottom: 1.5rem;
 }
-.logo-renco {
+.logo-renco, .logo-bim6x {
   height: 48px;
-  width: auto;
+  width: 120px;
   object-fit: contain;
 }
 .logo-sep {
@@ -87,14 +87,12 @@ body {
 .logo-bim6x-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background: var(--dark-2);
   border-radius: 8px;
   padding: 6px 12px;
-}
-.logo-bim6x {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
+  width: 144px;
+  height: 60px;
 }
 .hero-title {
   font-family: var(--serif);
@@ -241,8 +239,8 @@ body {
   .kpi-strip { grid-template-columns: repeat(2, 1fr); }
   .hero { padding: 2.5rem 1rem 2rem; }
   .hero-title { font-size: 2.2rem; }
-  .logo-renco { height: 36px; }
-  .logo-bim6x { height: 28px; }
+  .logo-renco, .logo-bim6x { height: 36px; width: 90px; }
+  .logo-bim6x-pill { width: 114px; height: 48px; }
   .logo-sep { margin: 0 0.6rem; font-size: 0.8rem; }
   .section { padding: 2rem 1rem; }
   .section-inner { max-width: 100%; overflow-x: hidden; }
@@ -265,9 +263,8 @@ body {
   .hero-title { font-size: 1.6rem; }
   .hero-project { font-size: 0.95rem; }
   .hero-brand { font-size: 0.75rem; }
-  .logo-renco { height: 28px; }
-  .logo-bim6x { height: 22px; }
-  .logo-bim6x-pill { padding: 4px 8px; border-radius: 6px; }
+  .logo-renco, .logo-bim6x { height: 28px; width: 72px; }
+  .logo-bim6x-pill { width: 96px; height: 40px; padding: 4px 8px; border-radius: 6px; }
   .logo-sep { margin: 0 0.4rem; font-size: 0.7rem; }
   .brand-renco, .brand-bim6x { font-size: 0.85rem; }
   .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 1px; }
