@@ -210,10 +210,22 @@ function renderShipping(data) {
     }
     palletHtml += '</div>';
 
-    const recLabel = data.summary.container_recommendation || '';
+    // Container spec line
+    let specLine = '';
+    if (ctr.name && ctr.interior_length_in) {
+      const l = ctr.interior_length_in, w = ctr.interior_width_in, h = ctr.interior_height_in;
+      const fmtDim = (inches) => {
+        const ft = Math.floor(inches / 12);
+        const rem = Math.round(inches % 12);
+        return `${ft}'${rem}"`;
+      };
+      specLine = `<div class="container-spec">${ctr.name} &mdash; ${fmtDim(l)} &times; ${fmtDim(w)} &times; ${fmtDim(h)} interior &mdash; ${ctr.max_payload_lbs.toLocaleString()} lbs max payload &mdash; ${ctr.max_pallets} pallets max</div>`;
+    }
+
     card.innerHTML = `
       <h3>Container ${ctr.container_number} of ${data.summary.containers_required}</h3>
-      <div class="stat"><strong>${ctr.total_pallets} pallets</strong></div>
+      ${specLine}
+      <div class="stat"><strong>${ctr.total_pallets} pallets loaded</strong></div>
       ${palletHtml}
     `;
     grid.appendChild(card);

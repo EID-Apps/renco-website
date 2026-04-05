@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "Ellis Beach Chalet 29",
-    "run_date": "2026-04-05T12:54:15",
+    "run_date": "2026-04-05T13:01:26",
     "total_walls": 22,
     "walls_with_warnings": 1,
     "excluded_walls": 0
@@ -563,6 +563,12 @@
     {
       "container_number": 1,
       "type": "20HC",
+      "name": "20ft High Cube",
+      "interior_length_in": 232,
+      "interior_width_in": 92,
+      "interior_height_in": 102,
+      "max_payload_lbs": 47070,
+      "max_pallets": 20,
       "pallets": [
         {
           "pallet_number": 1,
@@ -789,7 +795,13 @@
     },
     {
       "container_number": 2,
-      "type": "20HC",
+      "type": "40HC",
+      "name": "40ft High Cube",
+      "interior_length_in": 473,
+      "interior_width_in": 93,
+      "interior_height_in": 102,
+      "max_payload_lbs": 58135,
+      "max_pallets": 44,
       "pallets": [
         {
           "pallet_number": 21,

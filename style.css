@@ -305,6 +305,13 @@ body {
   color: var(--olive-d);
   margin-bottom: 0.75rem;
 }
+.container-spec {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--olive-d);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
 .shipping-card .stat {
   font-family: var(--mono);
   font-size: 0.8rem;
