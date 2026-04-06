@@ -241,15 +241,17 @@ function renderShipping(data) {
 
     const loadedWt = ctr.total_weight_lbs || 0;
     const maxWt = ctr.max_payload_lbs || 0;
+    const maxPal = ctr.max_pallets || 0;
+    const loadedPal = ctr.total_pallets || 0;
+    const palPct = maxPal > 0 ? Math.round(loadedPal / maxPal * 100) : 0;
     const wtPct = maxWt > 0 ? Math.round(loadedWt / maxWt * 100) : 0;
 
     card.innerHTML = `
       <h3>Container ${ctr.container_number} of ${data.summary.containers_required}</h3>
       <div class="container-spec">${ctr.name}</div>
       <div class="container-stats">
-        <span>Max capacity: ${maxWt.toLocaleString()} lbs</span>
-        <span>Actual payload: ${loadedWt.toLocaleString()} lbs</span>
-        <span>${wtPct}% filled</span>
+        <span>Pallets: ${loadedPal} / ${maxPal} (${palPct}%)</span>
+        <span>Weight: ${loadedWt.toLocaleString()} / ${maxWt.toLocaleString()} lbs (${wtPct}%)</span>
       </div>
       ${buildLayerGrid(layer1)}
       ${layer2.length > 0 ? '<div class="layer-gap"></div>' + buildLayerGrid(layer2) : ''}
