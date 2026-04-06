@@ -218,7 +218,7 @@ function renderShipping(data) {
           const p = grid[`${w}-${d}`];
           if (p) {
             const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
-            html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}</div>`;
+            html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}<br>${p.block_count}</div>`;
           } else {
             html += '<div class="pallet-cell pallet-empty"></div>';
           }
