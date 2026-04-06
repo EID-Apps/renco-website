@@ -223,18 +223,27 @@ function renderShipping(data) {
     // Split pallets by layer
     const layer1 = (ctr.pallets || []).filter(p => p.position.layer === 1);
     const layer2 = (ctr.pallets || []).filter(p => p.position.layer === 2);
-    const maxPerLayer = (ctr.max_pallets || 44) / 2;
+    const palletsPerLayer = (ctr.max_pallets || 44) / 2;
+    const colsAcross = 2;  // 2 pallets across width (loaded front-to-back)
+    const rowsDeep = Math.ceil(palletsPerLayer);
 
     function buildLayerGrid(pallets, label) {
-      let html = `<div class="layer-label">${label}</div><div class="pallet-grid">`;
-      for (let i = 0; i < maxPerLayer; i++) {
-        const p = pallets[i];
-        if (p) {
-          const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
-          html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}</div>`;
-        } else {
-          html += '<div class="pallet-cell pallet-empty"></div>';
+      let html = `<div class="layer-label">${label}</div><div class="pallet-grid-widthwise">`;
+      let pi = 0;
+      for (let r = 0; r < rowsDeep; r++) {
+        html += '<div class="pallet-row">';
+        for (let c = 0; c < colsAcross; c++) {
+          const p = pallets[pi];
+          if (p) {
+            const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
+            html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}</div>`;
+          } else if (pi < palletsPerLayer) {
+            html += '<div class="pallet-cell pallet-empty"></div>';
+          }
+          pi++;
         }
+        html += '</div>';
+        if (pi >= palletsPerLayer) break;
       }
       html += '</div>';
       return html;
