@@ -203,19 +203,24 @@ function renderShipping(data) {
     };
 
     // Pallets by layer
+    // Grid dimensions from container type: 40ft = 11 cols × 2 rows, 20ft = 5 cols × 2 rows
+    const ppl = (ctr.max_pallets || 44) / 2;   // positions per layer
+    const numCols = Math.round(ppl / 2);        // 11 or 5
+    const numRows = 2;
+
     const layer1 = (ctr.pallets || []).filter(p => p.position.layer === 1);
     const layer2 = (ctr.pallets || []).filter(p => p.position.layer === 2);
-    const ppl = (ctr.max_pallets || 44) / 2;
-    const depthCols = Math.ceil(ppl);
-    const widthRows = 2;
 
-    function buildLayerGrid(pallets) {
+    function buildLayerGrid(pallets, label) {
+      // Build lookup: row-col → pallet
       const grid = {};
-      pallets.forEach(p => { grid[`${p.position.col}-${p.position.row}`] = p; });
-      let html = `<div class="pallet-grid" style="grid-template-columns: repeat(${depthCols}, 1fr)">`;
-      for (let w = 1; w <= widthRows; w++) {
-        for (let d = 1; d <= depthCols; d++) {
-          const p = grid[`${w}-${d}`];
+      pallets.forEach(p => { grid[`${p.position.row}-${p.position.col}`] = p; });
+
+      let html = `<div class="layer-label">${label}</div>`;
+      html += `<div class="pallet-grid" style="grid-template-columns: repeat(${numCols}, 1fr)">`;
+      for (let r = 1; r <= numRows; r++) {
+        for (let c = 1; c <= numCols; c++) {
+          const p = grid[`${r}-${c}`];
           if (p) {
             const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
             html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}<br>${p.block_count}</div>`;
@@ -242,8 +247,8 @@ function renderShipping(data) {
         <span>Pallets: ${loadedPal} / ${maxPal} (${palPct}%)</span>
         <span>Weight: ${loadedWt.toLocaleString()} / ${maxWt.toLocaleString()} lbs (${wtPct}%)</span>
       </div>
-      ${buildLayerGrid(layer1)}
-      ${layer2.length > 0 ? '<div class="layer-gap"></div>' + buildLayerGrid(layer2) : ''}
+      ${buildLayerGrid(layer1, 'Layer 1 (floor)')}
+      ${layer2.length > 0 ? '<div class="layer-gap"></div>' + buildLayerGrid(layer2, 'Layer 2 (stacked)') : ''}
     `;
     grid.appendChild(card);
   });
