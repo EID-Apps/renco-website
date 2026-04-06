@@ -220,21 +220,27 @@ function renderShipping(data) {
       specLine = `<div class="container-spec">${ctr.name} &mdash; ${fmtDim(l)} &times; ${fmtDim(w)} &times; ${fmtDim(h)} interior &mdash; ${ctr.max_payload_lbs.toLocaleString()} lbs max payload &mdash; ${ctr.max_pallets} pallets max</div>`;
     }
 
-    // Split pallets by layer
+    // Split pallets by layer — use position data for grid placement
     const layer1 = (ctr.pallets || []).filter(p => p.position.layer === 1);
     const layer2 = (ctr.pallets || []).filter(p => p.position.layer === 2);
-    const palletsPerLayer = (ctr.max_pallets || 44) / 2;
-    const depthCols = Math.ceil(palletsPerLayer);  // columns = depth along length
-    const widthRows = 2;  // rows = side-by-side across width
+    const ppl = (ctr.max_pallets || 44) / 2;  // pallets per layer
+    const depthCols = Math.ceil(ppl);  // depth positions along container length
+    const widthRows = 2;  // width positions across container
 
     function buildLayerGrid(pallets, label) {
-      // Horizontal layout: 2 rows (width) × N cols (depth), loaded front-to-back
-      let html = `<div class="layer-label">${label}</div><div class="pallet-grid">`;
-      for (let r = 0; r < widthRows; r++) {
-        for (let c = 0; c < depthCols; c++) {
-          // Width-first index: column = depth position, row = width side
-          const idx = c * widthRows + r;
-          const p = idx < pallets.length ? pallets[idx] : null;
+      // Horizontal: 2 rows (width) × N cols (depth), loaded front-to-back
+      // Packing: p.position.row = depth, p.position.col = width side
+      // Display: row = width side (col), col = depth (row) — transposed
+      const grid = {};
+      pallets.forEach(p => {
+        const key = `${p.position.col}-${p.position.row}`;
+        grid[key] = p;
+      });
+
+      let html = `<div class="layer-label">${label}</div><div class="pallet-grid" style="grid-template-columns: repeat(${depthCols}, 1fr)">`;
+      for (let w = 1; w <= widthRows; w++) {       // display row = width side
+        for (let d = 1; d <= depthCols; d++) {      // display col = depth position
+          const p = grid[`${w}-${d}`];
           if (p) {
             const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
             html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}</div>`;
