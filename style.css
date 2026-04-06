@@ -278,7 +278,6 @@ body {
   .section { padding: 1.5rem 0.75rem; }
   .section-title { font-size: 1.2rem; }
   .pallet-grid { grid-template-columns: repeat(6, 1fr); }
-  .pallet-grid-widthwise { max-width: 120px; }
   .pallet-cell { font-size: 0.45rem; }
   .shipping-card { padding: 1rem; }
   .container-spec { font-size: 0.55rem; }
@@ -425,25 +424,12 @@ body {
 .height-ok { color: var(--olive-d); background: var(--sage-lt); }
 .height-warning { color: #c0392b; background: #fce4e4; font-weight: 700; }
 
-/* Pallet mini-grid (legacy lengthwise) */
+/* Pallet mini-grid — horizontal layout, loaded front-to-back (widthwise) */
 .pallet-grid {
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   gap: 2px;
   margin-top: 0.25rem;
-}
-/* Pallet grid — widthwise (front-to-back) */
-.pallet-grid-widthwise {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 0.25rem;
-  max-width: 160px;
-}
-.pallet-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
 }
 .pallet-cell {
   aspect-ratio: 1.2;

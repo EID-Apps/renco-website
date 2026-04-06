@@ -224,26 +224,24 @@ function renderShipping(data) {
     const layer1 = (ctr.pallets || []).filter(p => p.position.layer === 1);
     const layer2 = (ctr.pallets || []).filter(p => p.position.layer === 2);
     const palletsPerLayer = (ctr.max_pallets || 44) / 2;
-    const colsAcross = 2;  // 2 pallets across width (loaded front-to-back)
-    const rowsDeep = Math.ceil(palletsPerLayer);
+    const depthCols = Math.ceil(palletsPerLayer);  // columns = depth along length
+    const widthRows = 2;  // rows = side-by-side across width
 
     function buildLayerGrid(pallets, label) {
-      let html = `<div class="layer-label">${label}</div><div class="pallet-grid-widthwise">`;
-      let pi = 0;
-      for (let r = 0; r < rowsDeep; r++) {
-        html += '<div class="pallet-row">';
-        for (let c = 0; c < colsAcross; c++) {
-          const p = pallets[pi];
+      // Horizontal layout: 2 rows (width) × N cols (depth), loaded front-to-back
+      let html = `<div class="layer-label">${label}</div><div class="pallet-grid">`;
+      for (let r = 0; r < widthRows; r++) {
+        for (let c = 0; c < depthCols; c++) {
+          // Width-first index: column = depth position, row = width side
+          const idx = c * widthRows + r;
+          const p = idx < pallets.length ? pallets[idx] : null;
           if (p) {
             const cls = p.block_id.startsWith('COM') ? 'pallet-com' : 'pallet-res';
             html += `<div class="pallet-cell ${cls}" title="P${p.pallet_number}: ${p.block_id} x${p.block_count}">${p.block_id.split('-')[1]}</div>`;
-          } else if (pi < palletsPerLayer) {
+          } else {
             html += '<div class="pallet-cell pallet-empty"></div>';
           }
-          pi++;
         }
-        html += '</div>';
-        if (pi >= palletsPerLayer) break;
       }
       html += '</div>';
       return html;
