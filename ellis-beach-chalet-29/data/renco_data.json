@@ -1,14 +1,14 @@
 {
   "project": {
     "name": "Ellis Beach Chalet 29",
-    "run_date": "2026-04-06T15:39:36",
+    "run_date": "2026-04-06T15:48:51",
     "total_walls": 44,
-    "walls_with_warnings": 3,
+    "walls_with_warnings": 1,
     "excluded_walls": 0
   },
   "summary": {
     "total_blocks": 2994,
-    "total_weight_lbs": 36957.1,
+    "total_weight_lbs": 36974.1,
     "weight_is_estimated": true,
     "containers_required": 2,
     "container_recommendation": "1x 40ft High Cube + 1x 20ft Standard",
@@ -75,7 +75,7 @@
   },
   "consumables": {
     "adhesive_cartridges": 58,
-    "adhesive_joint_linear_ft": 5786.0,
+    "adhesive_joint_linear_ft": 5789.0,
     "adhesive_confirmed": false,
     "mallets": 3,
     "crew_size": 4
@@ -85,19 +85,19 @@
       "id": "COM-16",
       "name": "COM-16",
       "series": "commercial",
-      "count": 179,
+      "count": 177,
       "weight_per_block_lbs": 8.5,
       "confirmed_weight": true,
-      "total_weight_lbs": 1521.5
+      "total_weight_lbs": 1504.5
     },
     {
       "id": "COM-32",
       "name": "COM-32",
       "series": "commercial",
-      "count": 1170,
+      "count": 1172,
       "weight_per_block_lbs": 17.0,
       "confirmed_weight": false,
-      "total_weight_lbs": 19890.0
+      "total_weight_lbs": 19924.0
     },
     {
       "id": "COM-4",
@@ -1010,12 +1010,12 @@
       "flags": null
     },
     {
-      "id": "WALL-014X",
+      "id": "WALL-014",
       "guid": "517CB7C5-5473-41B7-A8C1-F64871BD90FA",
       "story": "LOWER LEVEL",
       "length_ft_in": "6'-0\"",
       "length_in": 72.0,
-      "height_in": 34.1,
+      "height_in": 32.0,
       "series": "commercial",
       "courses": 4,
       "openings": 0,
@@ -1025,32 +1025,27 @@
       },
       "total_blocks": 12,
       "weight_lbs": 153.2,
-      "flagged": true,
-      "flags": [
-        "Non-modular height: 2.1in remainder (34.1in / 8in courses)"
-      ]
+      "flagged": false,
+      "flags": null
     },
     {
-      "id": "WALL-016X",
+      "id": "WALL-016",
       "guid": "48FEDD96-3CED-497A-B508-A8A2778B60E9",
       "story": "LOWER LEVEL",
-      "length_ft_in": "2'-8\"",
-      "length_in": 32.0,
-      "height_in": 34.1,
+      "length_ft_in": "3'-4\"",
+      "length_in": 40.0,
+      "height_in": 32.0,
       "series": "commercial",
       "courses": 4,
       "openings": 0,
       "blocks": {
-        "COM-32": 2,
-        "COM-8": 4,
-        "COM-16": 2
+        "COM-32": 4,
+        "COM-8": 4
       },
       "total_blocks": 8,
-      "weight_lbs": 68.2,
-      "flagged": true,
-      "flags": [
-        "Non-modular height: 2.1in remainder (34.1in / 8in courses)"
-      ]
+      "weight_lbs": 85.2,
+      "flagged": false,
+      "flags": null
     }
   ],
   "containers": [
@@ -1078,8 +1073,8 @@
         {
           "pallet_number": 2,
           "block_id": "COM-16",
-          "block_count": 89,
-          "weight_lbs": 793.5,
+          "block_count": 87,
+          "weight_lbs": 776.5,
           "position": {
             "layer": 1,
             "row": 1,
@@ -1441,8 +1436,8 @@
         {
           "pallet_number": 35,
           "block_id": "COM-32",
-          "block_count": 18,
-          "weight_lbs": 343.0,
+          "block_count": 20,
+          "weight_lbs": 377.0,
           "position": {
             "layer": 2,
             "row": 2,
@@ -1550,7 +1545,7 @@
         }
       ],
       "total_pallets": 44,
-      "total_weight_lbs": 28348.3,
+      "total_weight_lbs": 28365.3,
       "layers_used": 2,
       "loaded_pallet_height_in": 48,
       "stack_height_in": 96,
@@ -1732,12 +1727,6 @@
   "warnings": [
     {
       "detail": "Wall WALL-018X: Opening area 50% (174.1 sqft openings / 346.7 sqft wall) \u2014 reduce openings by 0.8 sqft to get below 50%"
-    },
-    {
-      "detail": "Wall WALL-014X: Non-modular height: 2.1in remainder (34.1in / 8in courses)"
-    },
-    {
-      "detail": "Wall WALL-016X: Non-modular height: 2.1in remainder (34.1in / 8in courses)"
     }
   ]
 }
