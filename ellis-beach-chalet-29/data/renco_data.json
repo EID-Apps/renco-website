@@ -1,8 +1,8 @@
 {
   "project": {
     "name": "Ellis Beach Chalet 29",
-    "run_date": "2026-04-10T12:22:09",
-    "pipeline_duration_sec": 171.9,
+    "run_date": "2026-04-10T12:22:18",
+    "pipeline_duration_sec": 180.7,
     "total_walls": 45,
     "walls_with_warnings": 5,
     "excluded_walls": 0
