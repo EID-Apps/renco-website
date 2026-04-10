@@ -3,6 +3,22 @@
  * Loads renco_data.json and renders all sections.
  */
 
+// Auto-refresh: poll last_updated.json every 10s, reload if timestamp changed
+(function() {
+  let initialTs = null;
+  function checkForUpdate() {
+    fetch('../last_updated.json?_=' + Date.now())
+      .then(r => r.json())
+      .then(d => {
+        if (!initialTs) { initialTs = d.timestamp; return; }
+        if (d.timestamp !== initialTs) { location.reload(); }
+      })
+      .catch(() => {});
+  }
+  checkForUpdate();
+  setInterval(checkForUpdate, 10000);
+})();
+
 const DATA_URL = 'data/renco_data.json';
 
 // Block display names
