@@ -210,7 +210,7 @@ def _deploy_to_website(json_path: str, project_name: str, paths: dict):
             shutil.copy2(render_files[0], assets_dir / "model.png")
             print(f"  Website: copied project image ({render_files[0].name})")
     root_assets = website_repo / "assets"
-    for logo in ["Renco Logo.png", "BIM6x Logo.png"]:
+    for logo in ["Renco Logo.png"]:
         src = root_assets / logo
         if src.exists():
             shutil.copy2(src, assets_dir / logo.replace(" ", "_"))
