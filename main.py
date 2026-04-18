@@ -174,7 +174,7 @@ def run():
     print(f"  JSON:  {json_path}")
     print(f"  Time:  {elapsed:.1f}s")
     print("\n" + "=" * 60)
-    print(f"\n[OK] Renco Report complete -- Click here to see the Report: __https://sprtic1.github.io/renco-calc/{slug}/__\n")
+    print(f"\n[OK] Renco Report complete -- Click here to see the Report: __https://renco.ellisid.com/{slug}/__\n")
     print("=" * 60)
 
 

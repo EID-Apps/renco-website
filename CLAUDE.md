@@ -26,7 +26,7 @@ If any step fails, log the error and continue to the next step — never stop to
 **Who:** EID / BIM6x (Lincoln Ellis)
 **Model:** Ellis Beach Chalet 29 (Fiji project) — Archicad 29 Teamwork on BIM Cloud
 **Spec:** `renco_archicad_spec_v03.md` in project root
-**Website:** https://sprtic1.github.io/renco-calc/
+**Website:** https://renco.ellisid.com/
 
 ## How to Run
 ```
