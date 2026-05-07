@@ -74,6 +74,8 @@ async function init() {
 
 function renderHero(data) {
   document.getElementById('project-name').textContent = data.project.name;
+  const bcName = document.getElementById('bc-name');
+  if (bcName) bcName.textContent = data.project.name;
   const d = new Date(data.project.run_date);
   let dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) +
     ' at ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
