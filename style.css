@@ -342,9 +342,15 @@ body {
 .wall-table { font-family: var(--mono); font-size: 0.78rem; }
 .wall-table td:first-child { font-weight: 700; }
 .wall-id-flagged {
-  background: var(--red-bg) !important;
-  color: var(--red);
+  background: #fef6d8 !important;
+  color: #6b5000;
   font-weight: 700;
+}
+
+.totals-row td {
+  border-top: 2px solid var(--olive);
+  font-weight: 700;
+  background: var(--pale-sage, #f5f6f0);
 }
 
 /* Status badges */

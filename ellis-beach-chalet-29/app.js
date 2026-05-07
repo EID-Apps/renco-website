@@ -168,6 +168,12 @@ function renderBlockTable(data) {
   document.getElementById('block-total-weight').textContent = fmtWeight(data.summary.total_weight_lbs);
 }
 
+function fmtFtIn(inches) {
+  const ft = Math.floor(inches / 12);
+  const rem = Math.round(inches % 12);
+  return `${ft}'-${rem}"`;
+}
+
 function renderWallSchedule(data) {
   const tbody = document.querySelector('#wall-table tbody');
   // Sort by wall ID
@@ -201,6 +207,39 @@ function renderWallSchedule(data) {
     `;
     tbody.appendChild(tr);
   });
+
+  // Totals row
+  const totalLengthIn = walls.reduce((s, w) => s + (w.length_in || 0), 0);
+  const totalHeightIn = walls.reduce((s, w) => s + (w.height_in || 0), 0);
+  const totalCourses  = walls.reduce((s, w) => s + (w.courses || 0), 0);
+  const totalOpenings = walls.reduce((s, w) => s + (w.openings || 0), 0);
+  const totalCom32    = walls.reduce((s, w) => s + ((w.blocks || {})['COM-32'] || 0), 0);
+  const totalCom16    = walls.reduce((s, w) => s + ((w.blocks || {})['COM-16'] || 0), 0);
+  const totalCom8     = walls.reduce((s, w) => s + ((w.blocks || {})['COM-8'] || 0), 0);
+  const totalCom4     = walls.reduce((s, w) => s + ((w.blocks || {})['COM-4'] || 0), 0);
+  const totalBlocks   = walls.reduce((s, w) => s + (w.total_blocks || 0), 0);
+  const totalWeight   = walls.reduce((s, w) => s + (w.weight_lbs || 0), 0);
+
+  const tfoot = document.createElement('tfoot');
+  const tr = document.createElement('tr');
+  tr.className = 'totals-row';
+  tr.innerHTML = `
+    <td>${walls.length} walls</td>
+    <td></td>
+    <td class="num">${fmtFtIn(totalLengthIn)}</td>
+    <td class="num">${Math.round(totalHeightIn)}"</td>
+    <td></td>
+    <td class="num">${totalCourses}</td>
+    <td class="num">${totalOpenings}</td>
+    <td class="num">${totalCom32 || ''}</td>
+    <td class="num">${totalCom16 || ''}</td>
+    <td class="num">${totalCom8 || ''}</td>
+    <td class="num">${totalCom4 || ''}</td>
+    <td class="num"><strong>${totalBlocks}</strong></td>
+    <td class="num">${fmtWeight(totalWeight)}</td>
+  `;
+  tfoot.appendChild(tr);
+  document.getElementById('wall-table').appendChild(tfoot);
 }
 
 function renderShipping(data) {
