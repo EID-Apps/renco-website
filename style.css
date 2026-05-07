@@ -342,8 +342,8 @@ body {
 .wall-table { font-family: var(--mono); font-size: 0.78rem; }
 .wall-table td:first-child { font-weight: 700; }
 .wall-id-flagged {
-  background: #fef6d8 !important;
-  color: #6b5000;
+  background: #ebe5d3 !important;
+  color: #5a4a2a;
   font-weight: 700;
 }
 
