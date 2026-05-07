@@ -5,7 +5,8 @@
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { overflow-x: hidden; width: 100%; }
+html { overflow-x: hidden; width: 100%; }
+body { overflow-x: clip; width: 100%; }
 
 :root {
   --olive:    #868D54;
@@ -335,7 +336,7 @@ body {
   padding: 0.75rem 1rem;
 }
 
-.table-scroll { overflow-x: auto; border-radius: 8px; -webkit-overflow-scrolling: touch; }
+.table-scroll { width: 100%; overflow-x: auto; border-radius: 8px; -webkit-overflow-scrolling: touch; }
 .block-table-wrap { min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* Wall table specifics */
