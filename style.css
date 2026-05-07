@@ -340,7 +340,7 @@ body {
 .block-table-wrap { min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* Wall table specifics */
-.wall-table { font-family: var(--mono); font-size: 0.95rem; white-space: nowrap; }
+.wall-table { font-family: var(--mono); font-size: 0.95rem; white-space: nowrap; min-width: 1380px; }
 .wall-table td:first-child { font-weight: 700; }
 .wall-flagged td {
   background: #FDF6C6 !important;
