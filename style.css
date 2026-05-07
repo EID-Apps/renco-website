@@ -339,11 +339,11 @@ body {
 .block-table-wrap { min-width: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* Wall table specifics */
-.wall-table { font-family: var(--mono); font-size: 0.78rem; }
+.wall-table { font-family: var(--mono); font-size: 0.95rem; }
 .wall-table td:first-child { font-weight: 700; }
 .wall-id-flagged {
-  background: #ebe5d3 !important;
-  color: #5a4a2a;
+  background: #f5e99a !important;
+  color: #5a4400;
   font-weight: 700;
 }
 
