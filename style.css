@@ -341,10 +341,9 @@ body {
 /* Wall table specifics */
 .wall-table { font-family: var(--mono); font-size: 0.95rem; }
 .wall-table td:first-child { font-weight: 700; }
-.wall-id-flagged {
-  background: #f5e99a !important;
-  color: #5a4400;
-  font-weight: 700;
+.wall-flagged td {
+  background: #FDF6C6 !important;
+  color: #313131 !important;
 }
 
 .totals-row td {

@@ -186,12 +186,11 @@ function renderWallSchedule(data) {
 
   walls.forEach(w => {
     const tr = document.createElement('tr');
-    const flagged = w.flagged;
-    const idClass = flagged ? 'wall-id-flagged' : '';
+    if (w.flagged) tr.classList.add('wall-flagged');
     const blocks = w.blocks || {};
 
     tr.innerHTML = `
-      <td class="${idClass}">${w.id}</td>
+      <td>${w.id}</td>
       <td>${w.story}</td>
       <td class="num">${w.length_ft_in}</td>
       <td class="num">${w.height_in}"</td>
