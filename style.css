@@ -191,7 +191,7 @@ body {
 .section-dark .data-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
 .section-dark .data-table tbody tr:hover td { background: rgba(134,141,84,0.15); }
 
-.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
 .section-title {
   font-family: var(--serif);
   font-weight: 700;
