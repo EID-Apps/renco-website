@@ -33,14 +33,16 @@ const BLOCK_NAMES = {
   'RES-3':  'Residential Closure Block (3")',
 };
 
-// Chart colors — olive/sage palette
+// Chart colors — Renco green palette
 const CHART_COLORS = [
-  '#6b7243', // dark olive
-  '#868D54', // olive
-  '#a5ab76', // light olive
-  '#C2C8A2', // sage
-  '#d4d9bc', // light sage
-  '#e0e4d0', // pale sage
+  '#4C8251', // Renco deep green
+  '#7AC142', // Renco brand green
+  '#5a9460',
+  '#6aad6c',
+  '#8ecf5c',
+  '#a5d878',
+  '#bde696',
+  '#d4f0b4',
 ];
 
 function fmt(n) {

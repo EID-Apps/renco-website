@@ -1,7 +1,7 @@
 /* ============================================================
-   RENCO Block Schedule — EID / BIM6x Demo Page
+   RENCO Block Schedule — Prepared by Ellis Interior Design
    Fonts: Playfair Display, DM Sans, DM Mono
-   Colors: #868D54 olive, #C2C8A2 sage, #1a1a1a dark
+   Colors: #7AC142 Renco green, #4C8251 deep green, #221F20 charcoal
    ============================================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -9,14 +9,15 @@ html { overflow-x: hidden; width: 100%; }
 body { overflow-x: clip; width: 100%; }
 
 :root {
-  --olive:    #868D54;
-  --olive-d:  #6b7243;
-  --sage:     #C2C8A2;
-  --sage-lt:  #e8ebda;
-  --dark:     #1a1a1a;
-  --dark-2:   #2a2a2a;
-  --dark-3:   #333;
-  --light:    #f8f7f4;
+  --olive:    #7AC142;
+  --olive-d:  #4C8251;
+  --sage:     #b8e082;
+  --sage-lt:  #EEF6E6;
+  --dark:     #221F20;
+  --dark-2:   #2d2a2b;
+  --dark-3:   #3a3739;
+  --light:    #F5F5F5;
+  --grey:     #9E9EA1;
   --white:    #ffffff;
   --red:      #c0392b;
   --red-bg:   #fce4e4;
@@ -54,7 +55,7 @@ body {
   color: var(--sage);
 }
 .brand-renco {
-  color: #7CB342;
+  color: #7AC142;
   font-weight: 700;
   font-size: 1rem;
 }
@@ -161,7 +162,7 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 .kpi-card {
-  background: var(--white);
+  background: var(--sage-lt);
   padding: 2rem 1.5rem;
   text-align: center;
 }
@@ -189,7 +190,7 @@ body {
 .section-dark .data-table th { background: var(--dark-3); color: var(--sage); }
 .section-dark .data-table td { color: #ddd; border-color: #444; }
 .section-dark .data-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
-.section-dark .data-table tbody tr:hover td { background: rgba(134,141,84,0.15); }
+.section-dark .data-table tbody tr:hover td { background: rgba(76,130,81,0.15); }
 
 .section-inner { max-width: 1400px; margin: 0 auto; }
 .section-title {
@@ -311,7 +312,7 @@ body {
   overflow: hidden;
 }
 .data-table th {
-  background: var(--olive);
+  background: var(--olive-d);
   color: var(--white);
   font-weight: 700;
   text-transform: uppercase;
@@ -328,9 +329,9 @@ body {
   white-space: nowrap;
 }
 .data-table tbody tr:nth-child(even) td { background: var(--sage-lt); }
-.data-table tbody tr:hover td { background: rgba(134,141,84,0.12); }
+.data-table tbody tr:hover td { background: rgba(76,130,81,0.12); }
 .data-table tfoot td {
-  background: var(--olive);
+  background: var(--olive-d);
   color: var(--white);
   font-weight: 700;
   padding: 0.75rem 1rem;
@@ -363,7 +364,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.badge-confirmed { background: var(--olive); color: var(--white); }
+.badge-confirmed { background: var(--olive-d); color: var(--white); }
 .badge-estimated { background: var(--sage); color: var(--olive-d); }
 
 /* === Shipping Grid === */
@@ -455,8 +456,8 @@ body {
   text-align: center;
   line-height: 1.2;
 }
-.pallet-com { background: var(--olive); }
-.pallet-res { background: var(--sage); color: var(--olive-d); }
+.pallet-com { background: var(--olive-d); }
+.pallet-res { background: var(--olive); color: var(--dark); }
 .pallet-empty { background: #ddd; color: #999; }
 
 /* === Warnings === */
@@ -474,7 +475,7 @@ body {
 
 /* === Data Pending === */
 .section-pending {
-  background: #f5f3ed;
+  background: var(--sage-lt);
 }
 .section-pending .section-title {
   color: var(--olive-d);
