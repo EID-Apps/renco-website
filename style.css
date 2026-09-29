@@ -510,6 +510,17 @@ body {
   line-height: 1.6;
   margin-top: 0.5rem;
 }
+.pending-subheading {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--olive-d);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.pending-subheading:first-of-type { margin-top: 0; }
 
 /* === Footer === */
 .footer {
