@@ -1,11 +1,11 @@
 [
   {
-    "name": "Ellis Beach Chalet 29",
+    "name": "Ellis Beach Chalet 29 v2",
     "slug": "ellis-beach-chalet-29",
-    "run_date": "2026-09-29T11:01:48",
-    "total_walls": 46,
-    "total_blocks": 3499,
-    "total_weight_lbs": 44848.1,
+    "run_date": "2026-09-29T20:28:00",
+    "total_walls": 42,
+    "total_blocks": 3295,
+    "total_weight_lbs": 42192.7,
     "containers": 2,
     "container_recommendation": "1x 40ft High Cube + 1x 40ft Standard"
   }
